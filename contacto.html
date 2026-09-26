@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ponte en Contacto con Vertize</title>
+<meta name="description" content="Formulario de contacto de Vertize con validaciones de campos obligatorios, formato de correo y longitud mínima de mensaje.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-pagina="contacto">
+
+<header class="encabezado">
+  <div class="franja-fecha">
+    <div class="container">
+      <span id="fecha-edicion"></span>
+      <span>Atención editorial y lectores</span>
+    </div>
+  </div>
+  <nav class="nav-principal container">
+    <a href="index.html" class="logo"><span class="marca-icono">V</span> VERTIZE</a>
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <ul class="menu-principal">
+      <li><a href="index.html" data-pagina="inicio">Inicio</a></li>
+      <li><a href="noticias.html" data-pagina="noticias">Noticias</a></li>
+      <li><a href="favoritas.html" data-pagina="favoritas">Favoritas</a></li>
+      <li><a href="contacto.html" data-pagina="contacto">Contacto</a></li>
+      <li><a href="gestion.html" data-pagina="gestion">Gestión</a></li>
+    </ul>
+    <div class="nav-derecha">
+      <span class="texto-sesion">Iniciar sesión</span>
+      <span class="avatar-cuenta">👤</span>
+    </div>
+  </nav>
+</header>
+
+<main class="container seccion" style="max-width:760px;">
+  <span class="titulo-eyebrow">Atención editorial y lectores</span>
+  <h1>Ponte en Contacto con Vertize</h1>
+  <p class="texto-atenuado">Escríbenos para sugerencias de cobertura, primicias técnicas, consultas editoriales, colaboraciones o soporte sobre tu cuenta y biblioteca.</p>
+
+  <div class="formulario" style="margin-top:24px;">
+    <h3>Canal Oficial de Transmisión</h3>
+    <p class="texto-atenuado" style="font-size:0.85rem;">Completa los datos para canalizar directamente con el equipo editorial o técnico.</p>
+
+    <div id="mensaje-confirmacion" class="mensaje-confirmacion" role="status">
+      ✅ Tu mensaje fue enviado correctamente. Nuestro equipo editorial te responderá en un plazo máximo de 48 horas.
+    </div>
+
+    <form id="form-contacto" novalidate>
+      <div class="grid-2">
+        <div class="campo" id="campo-nombre">
+          <label for="nombre">Nombre completo <span class="obligatorio">*</span></label>
+          <input type="text" id="nombre" name="nombre" placeholder="Dra. Elena Almirall" autocomplete="name">
+          <p class="ayuda">Identidad o seudónimo profesional.</p>
+          <p class="mensaje-error">Escribe tu nombre completo (mínimo 3 caracteres).</p>
+        </div>
+        <div class="campo" id="campo-correo">
+          <label for="correo">Correo electrónico <span class="obligatorio">*</span></label>
+          <input type="email" id="correo" name="correo" placeholder="nombre@entidad.com" autocomplete="email">
+          <p class="ayuda">Enviaremos acuse de recibo y copia cifrada.</p>
+          <p class="mensaje-error">Ingresa un correo con formato nombre@dominio.extensión.</p>
+        </div>
+      </div>
+
+      <div class="campo" id="campo-motivo">
+        <label for="motivo">Motivo del contacto <span class="obligatorio">*</span></label>
+        <select id="motivo" name="motivo">
+          <option value="">Selecciona una categoría editorial</option>
+          <option value="sugerencia">Sugerencia de cobertura</option>
+          <option value="consulta">Consulta editorial</option>
+          <option value="colaboracion">Colaboración o primicia técnica</option>
+          <option value="soporte">Soporte de cuenta o biblioteca</option>
+        </select>
+        <p class="mensaje-error">Selecciona un motivo de contacto.</p>
+      </div>
+
+      <div class="campo" id="campo-asunto">
+        <label for="asunto">Asunto del comunicado <span class="obligatorio">*</span></label>
+        <input type="text" id="asunto" name="asunto" placeholder="Ej: Filtración técnica sobre arquitectura de pesos mixtos">
+        <p class="mensaje-error">El asunto es obligatorio (mínimo 5 caracteres).</p>
+      </div>
+
+      <div class="campo" id="campo-mensaje">
+        <label for="mensaje">Mensaje detallado <span class="obligatorio">*</span> <span class="contador" id="contador-mensaje">0 / 20 mín.</span></label>
+        <textarea id="mensaje" name="mensaje" placeholder="Describe tu consulta, adjunta enlaces a repositorios públicos o contexto relevante para nuestra mesa de redacción..."></textarea>
+        <p class="mensaje-error">El mensaje debe tener al menos 20 caracteres.</p>
+      </div>
+
+      <div class="campo" id="campo-politica">
+        <label class="campo-checkbox">
+          <input type="checkbox" id="politica" name="politica">
+          <span>He leído y acepto expresamente la <a href="#" style="color:var(--verde-700); font-weight:600;">Política de Privacidad</a> y el <a href="#" style="color:var(--verde-700); font-weight:600;">Código Deontológico</a> de Vertize.</span>
+        </label>
+        <p class="mensaje-error">Debes aceptar la política de privacidad para continuar.</p>
+      </div>
+
+      <button type="submit" class="btn btn-primario" id="btn-enviar" disabled>Enviar mensaje ▶</button>
+    </form>
+  </div>
+</main>
+
+<footer class="pie-pagina">
+  <div class="container pie-grid">
+    <div>
+      <a href="index.html" class="logo" style="color:#faf6ec"><span class="marca-icono">V</span> VERTIZE</a>
+      <p style="margin-top:12px; font-size:0.85rem;">Periodismo tecnológico independiente especializado en inteligencia artificial, computación emergente y ética tecnológica.</p>
+    </div>
+    <div>
+      <h4>Exploración</h4>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="favoritas.html">Favoritas</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Redacción</h4>
+      <ul>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="gestion.html">Gestión de noticias</a></li>
+        <li><a href="contacto.html">Código deontológico</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Boletín Vertize</h4>
+      <p style="font-size:0.85rem;">Cada semana enviamos los hallazgos técnicos más relevantes directo a tu bandeja.</p>
+      <form class="pie-boletin" data-form="boletin">
+        <input type="email" placeholder="tucorreo@ejemplo.com" required>
+        <button type="submit">Suscribir</button>
+      </form>
+    </div>
+  </div>
+  <div class="container pie-legal">
+    <span>© 2026 Vertize. Todos los derechos reservados.</span>
+    <span>Proyecto académico — Politécnico Gran Colombiano</span>
+  </div>
+</footer>
+
+<script src="js/store.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/contacto.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="titulo-pagina">Detalle de la noticia — Vertize</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-pagina="noticias">
+
+<header class="encabezado">
+  <div class="franja-fecha">
+    <div class="container">
+      <span id="fecha-edicion"></span>
+      <span>Vista de lectura</span>
+    </div>
+  </div>
+  <nav class="nav-principal container">
+    <a href="index.html" class="logo"><span class="marca-icono">V</span> VERTIZE</a>
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <ul class="menu-principal">
+      <li><a href="index.html" data-pagina="inicio">Inicio</a></li>
+      <li><a href="noticias.html" data-pagina="noticias">Noticias</a></li>
+      <li><a href="favoritas.html" data-pagina="favoritas">Favoritas</a></li>
+      <li><a href="contacto.html" data-pagina="contacto">Contacto</a></li>
+      <li><a href="gestion.html" data-pagina="gestion">Gestión</a></li>
+    </ul>
+    <div class="nav-derecha">
+      <span class="texto-sesion">Iniciar sesión</span>
+      <span class="avatar-cuenta">👤</span>
+    </div>
+  </nav>
+</header>
+
+<main class="container seccion" id="contenido-detalle">
+  <p>Cargando noticia...</p>
+</main>
+
+<footer class="pie-pagina">
+  <div class="container pie-grid">
+    <div>
+      <a href="index.html" class="logo" style="color:#faf6ec"><span class="marca-icono">V</span> VERTIZE</a>
+      <p style="margin-top:12px; font-size:0.85rem;">Periodismo tecnológico independiente especializado en inteligencia artificial, computación emergente y ética tecnológica.</p>
+    </div>
+    <div>
+      <h4>Exploración</h4>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="favoritas.html">Favoritas</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Redacción</h4>
+      <ul>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="gestion.html">Gestión de noticias</a></li>
+        <li><a href="contacto.html">Código deontológico</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Boletín Vertize</h4>
+      <p style="font-size:0.85rem;">Cada semana enviamos los hallazgos técnicos más relevantes directo a tu bandeja.</p>
+      <form class="pie-boletin" data-form="boletin">
+        <input type="email" placeholder="tucorreo@ejemplo.com" required>
+        <button type="submit">Suscribir</button>
+      </form>
+    </div>
+  </div>
+  <div class="container pie-legal">
+    <span>© 2026 Vertize. Todos los derechos reservados.</span>
+    <span>Proyecto académico — Politécnico Gran Colombiano</span>
+  </div>
+</footer>
+
+<script src="js/store.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/detalle.js" defer></script>
+</body>
+</html>

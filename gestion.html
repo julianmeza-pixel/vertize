@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestión de Noticias y Publicación Rápida — Vertize</title>
+<meta name="description" content="Módulo de administración de Vertize para crear y eliminar noticias del catálogo (mini CRUD).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-pagina="gestion">
+
+<header class="encabezado">
+  <div class="franja-fecha">
+    <div class="container">
+      <span id="fecha-edicion"></span>
+      <span>Panel de administración</span>
+    </div>
+  </div>
+  <nav class="nav-principal container">
+    <a href="index.html" class="logo"><span class="marca-icono">V</span> VERTIZE</a>
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <ul class="menu-principal">
+      <li><a href="index.html" data-pagina="inicio">Inicio</a></li>
+      <li><a href="noticias.html" data-pagina="noticias">Noticias</a></li>
+      <li><a href="favoritas.html" data-pagina="favoritas">Favoritas</a></li>
+      <li><a href="contacto.html" data-pagina="contacto">Contacto</a></li>
+      <li><a href="gestion.html" data-pagina="gestion">Gestión</a></li>
+    </ul>
+    <div class="nav-derecha">
+      <span class="texto-sesion">Iniciar sesión</span>
+      <span class="avatar-cuenta">👤</span>
+    </div>
+  </nav>
+</header>
+
+<main class="container seccion">
+  <span class="titulo-eyebrow">Administración de contenido</span>
+  <h1>Gestión de Noticias y Publicación Rápida</h1>
+  <p class="texto-atenuado">Crea y publica nuevas notas en el catálogo, y retira las que ya no deban estar disponibles. Los cambios se guardan en el navegador y se reflejan de inmediato en el listado.</p>
+
+  <div class="gestion-layout" style="margin-top:24px;">
+    <div class="formulario">
+      <h3>📰 Publicar Nueva Noticia</h3>
+      <p class="texto-atenuado" style="font-size:0.85rem;">Todos los campos marcados con * son obligatorios.</p>
+
+      <div id="mensaje-confirmacion-gestion" class="mensaje-confirmacion" role="status">
+        ✅ La noticia se publicó correctamente en el catálogo.
+      </div>
+
+      <form id="form-gestion" novalidate>
+        <div class="grid-2">
+          <div class="campo" id="campo-titulo">
+            <label for="titulo">Título de la noticia <span class="obligatorio">*</span></label>
+            <input type="text" id="titulo" placeholder="Ej: Nuevo estándar de compresión para pesos de modelos">
+            <p class="mensaje-error">El título debe tener al menos 8 caracteres.</p>
+          </div>
+          <div class="campo" id="campo-categoria">
+            <label for="categoria">Categoría temática <span class="obligatorio">*</span></label>
+            <select id="categoria">
+              <option value="">Selecciona una categoría</option>
+            </select>
+            <p class="mensaje-error">Selecciona una categoría.</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="campo" id="campo-autor">
+            <label for="autor">Autor <span class="obligatorio">*</span></label>
+            <input type="text" id="autor" placeholder="Nombre y apellido">
+            <p class="mensaje-error">Escribe el nombre del autor.</p>
+          </div>
+          <div class="campo" id="campo-tiempo">
+            <label for="tiempo">Tiempo estimado de lectura (min) <span class="obligatorio">*</span></label>
+            <input type="number" id="tiempo" min="1" max="30" placeholder="6">
+            <p class="mensaje-error">Indica un tiempo de lectura entre 1 y 30 minutos.</p>
+          </div>
+        </div>
+
+        <div class="campo" id="campo-imagen">
+          <label for="imagen">Imagen de portada (URL)</label>
+          <input type="url" id="imagen" placeholder="https://...">
+          <p class="ayuda">Opcional: si se deja vacío, se asignará una imagen genérica.</p>
+        </div>
+
+        <div class="campo" id="campo-descripcion">
+          <label for="descripcion">Descripción breve (para la tarjeta) <span class="obligatorio">*</span></label>
+          <textarea id="descripcion" style="min-height:70px;" placeholder="Resumen de una o dos líneas para el catálogo..."></textarea>
+          <p class="mensaje-error">La descripción breve debe tener al menos 20 caracteres.</p>
+        </div>
+
+        <div class="campo" id="campo-contenido">
+          <label for="contenido">Contenido completo del artículo <span class="obligatorio">*</span></label>
+          <textarea id="contenido" placeholder="Desarrolla aquí el cuerpo completo de la noticia..."></textarea>
+          <p class="mensaje-error">El contenido debe tener al menos 40 caracteres.</p>
+        </div>
+
+        <div style="display:flex; gap:12px; justify-content:flex-end;">
+          <button type="reset" class="btn btn-secundario" id="btn-limpiar">Limpiar borrador</button>
+          <button type="submit" class="btn btn-primario">📤 Publicar noticia</button>
+        </div>
+      </form>
+    </div>
+
+    <div>
+      <h3>Catálogo vigente</h3>
+      <p class="texto-atenuado" style="font-size:0.85rem;">Selecciona eliminar para retirar una noticia del catálogo. Se pedirá confirmación.</p>
+      <div id="catalogo-vigente" class="catalogo-vigente"></div>
+    </div>
+  </div>
+</main>
+
+<footer class="pie-pagina">
+  <div class="container pie-grid">
+    <div>
+      <a href="index.html" class="logo" style="color:#faf6ec"><span class="marca-icono">V</span> VERTIZE</a>
+      <p style="margin-top:12px; font-size:0.85rem;">Periodismo tecnológico independiente especializado en inteligencia artificial, computación emergente y ética tecnológica.</p>
+    </div>
+    <div>
+      <h4>Exploración</h4>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="favoritas.html">Favoritas</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Redacción</h4>
+      <ul>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="gestion.html">Gestión de noticias</a></li>
+        <li><a href="contacto.html">Código deontológico</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Boletín Vertize</h4>
+      <p style="font-size:0.85rem;">Cada semana enviamos los hallazgos técnicos más relevantes directo a tu bandeja.</p>
+      <form class="pie-boletin" data-form="boletin">
+        <input type="email" placeholder="tucorreo@ejemplo.com" required>
+        <button type="submit">Suscribir</button>
+      </form>
+    </div>
+  </div>
+  <div class="container pie-legal">
+    <span>© 2026 Vertize. Todos los derechos reservados.</span>
+    <span>Proyecto académico — Politécnico Gran Colombiano</span>
+  </div>
+</footer>
+
+<script src="js/store.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/gestion.js" defer></script>
+</body>
+</html>
