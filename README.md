@@ -2,6 +2,8 @@
 
 Prototipo funcional (Entrega 2) del proyecto **Vertize**, desarrollado para el módulo de Desarrollo de Front-end del Politécnico Gran Colombiano. Construido con HTML, CSS y JavaScript (sin frameworks), a partir de la maquetación entregada en la Entrega 1.
 
+Repositorio: https://github.com/julianmeza-pixel/vertize
+
 ## Autores
 
 - Julian Felipe Meza Gonzalez
