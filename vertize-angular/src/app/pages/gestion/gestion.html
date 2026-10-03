@@ -1,0 +1,97 @@
+<main class="container seccion">
+  <span class="titulo-eyebrow">Administración de contenido</span>
+  <h1>Gestión de Noticias y Publicación Rápida</h1>
+  <p class="texto-atenuado">
+    Crea y publica nuevas notas en el catálogo, y retira las que ya no deban estar disponibles. Los cambios se guardan en el navegador y se reflejan de inmediato en el listado.
+  </p>
+
+  <div class="gestion-layout" style="margin-top: 24px">
+    <div class="formulario">
+      <h3>📰 Publicar Nueva Noticia</h3>
+      <p class="texto-atenuado" style="font-size: 0.85rem">Todos los campos marcados con * son obligatorios.</p>
+
+      @if (publicada()) {
+        <div class="mensaje-confirmacion visible" role="status">✅ La noticia se publicó correctamente en el catálogo.</div>
+      }
+
+      <form [formGroup]="formulario" (ngSubmit)="publicar()" novalidate>
+        <div class="grid-2">
+          <div class="campo" [class.error]="invalido(formulario.controls.titulo)">
+            <label for="titulo">Título de la noticia <span class="obligatorio">*</span></label>
+            <input id="titulo" type="text" formControlName="titulo" placeholder="Ej: Nuevo estándar de compresión para pesos de modelos" />
+            <p class="mensaje-error">El título debe tener al menos 8 caracteres.</p>
+          </div>
+          <div class="campo" [class.error]="invalido(formulario.controls.categoria)">
+            <label for="categoria">Categoría temática <span class="obligatorio">*</span></label>
+            <select id="categoria" formControlName="categoria">
+              <option value="">Selecciona una categoría</option>
+              @for (cat of categorias; track cat) {
+                <option [value]="cat">{{ cat }}</option>
+              }
+            </select>
+            <p class="mensaje-error">Selecciona una categoría.</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="campo" [class.error]="invalido(formulario.controls.autor)">
+            <label for="autor">Autor <span class="obligatorio">*</span></label>
+            <input id="autor" type="text" formControlName="autor" placeholder="Nombre y apellido" />
+            <p class="mensaje-error">Escribe el nombre del autor.</p>
+          </div>
+          <div class="campo" [class.error]="invalido(formulario.controls.tiempoLectura)">
+            <label for="tiempo">Tiempo estimado de lectura (min) <span class="obligatorio">*</span></label>
+            <input id="tiempo" type="number" formControlName="tiempoLectura" min="1" max="30" placeholder="6" />
+            <p class="mensaje-error">Indica un tiempo de lectura entre 1 y 30 minutos.</p>
+          </div>
+        </div>
+
+        <div class="campo" [class.error]="invalido(formulario.controls.imagen)">
+          <label for="imagen">Imagen de portada (URL)</label>
+          <input id="imagen" type="url" formControlName="imagen" placeholder="https://..." />
+          <p class="ayuda">Opcional: si se deja vacío, se usará la portada de la categoría elegida.</p>
+          <p class="mensaje-error">Ingresa una URL válida que empiece por http:// o https://.</p>
+        </div>
+
+        <div class="campo" [class.error]="invalido(formulario.controls.descripcion)">
+          <label for="descripcion">Descripción breve (para la tarjeta) <span class="obligatorio">*</span></label>
+          <textarea id="descripcion" formControlName="descripcion" style="min-height: 70px" placeholder="Resumen de una o dos líneas para el catálogo..."></textarea>
+          <p class="mensaje-error">La descripción breve debe tener al menos 20 caracteres.</p>
+        </div>
+
+        <div class="campo" [class.error]="invalido(formulario.controls.contenido)">
+          <label for="contenido">Contenido completo del artículo <span class="obligatorio">*</span></label>
+          <textarea id="contenido" formControlName="contenido" placeholder="Desarrolla aquí el cuerpo completo de la noticia..."></textarea>
+          <p class="mensaje-error">El contenido debe tener al menos 40 caracteres.</p>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: flex-end">
+          <button type="button" class="btn btn-secundario" (click)="limpiar()">Limpiar borrador</button>
+          <button type="submit" class="btn btn-primario">📤 Publicar noticia</button>
+        </div>
+      </form>
+    </div>
+
+    <div>
+      <h3>Catálogo vigente</h3>
+      <p class="texto-atenuado" style="font-size: 0.85rem">
+        Selecciona eliminar para retirar una noticia del catálogo. Se pedirá confirmación.
+      </p>
+      <div class="catalogo-vigente">
+        @for (noticia of catalogo(); track noticia.id) {
+          <article class="tarjeta-mini">
+            <img [src]="noticia.imagen" alt="" />
+            <div class="tarjeta-mini__cuerpo">
+              <span class="tarjeta-mini__meta">{{ noticia.categoria }}</span>
+              <h5>{{ noticia.titulo }}</h5>
+              <span class="tarjeta-mini__meta">Por {{ noticia.autor }}</span>
+            </div>
+            <button type="button" class="btn-eliminar" (click)="eliminar(noticia.id)">🗑 Eliminar</button>
+          </article>
+        } @empty {
+          <p class="estado-vacio">El catálogo está vacío.</p>
+        }
+      </div>
+    </div>
+  </div>
+</main>

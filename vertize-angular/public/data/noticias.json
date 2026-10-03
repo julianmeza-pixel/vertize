@@ -1,0 +1,230 @@
+[
+  {
+    "id": 1,
+    "categoria": "Inteligencia Artificial",
+    "autor": "Elena Salgado",
+    "fecha": "2026-09-10",
+    "tiempoLectura": 6,
+    "titulo": "Modelos de razonamiento autónomo: la transición hacia arquitecturas System 2",
+    "descripcion": "Un recorrido por las cadenas de razonamiento deliberado que sustituyen la predicción estadística por composición de respuestas paso a paso.",
+    "imagen": "covers/inteligencia-artificial.svg",
+    "destacada": true,
+    "cita": "El mercado solo cuantifica lo que se puede medir, pero ¿de qué sirve una computación en la que no podemos gastar pensando más de lo que responde?",
+    "datoInteres": "Los modelos System 2 evaluados reducen la tasa de error en tareas de verificación formal en un 34% frente a la generación en una sola pasada.",
+    "contenido": [
+      "Durante los últimos meses, varios laboratorios han presentado familias de modelos que ya no generan una respuesta de una sola vez, sino que la construyen mediante cadenas de razonamiento intermedias antes de emitir un resultado final. Esta transición hacia lo que la literatura denomina arquitecturas System 2 busca resolver una limitación estructural de los modelos anteriores: la dificultad para verificar sus propios pasos de inferencia.",
+      "El dilema de la latencia frente a la fiabilidad algorítmica es el eje central del debate técnico. Cuando un modelo detiene su respuesta para reconsiderar una hipótesis intermedia, el tiempo de cómputo aumenta, pero también lo hace la probabilidad de detectar errores lógicos antes de que lleguen al usuario.",
+      "Impacto en ingeniería de software y agentes autónomos: los equipos que integran estos modelos en pipelines de desarrollo reportan una reducción notable en el número de iteraciones necesarias para depurar código generado automáticamente, lo que redefine la relación entre desarrolladores humanos y agentes de escritura de software.",
+      "Aun así, especialistas en eficiencia energética advierten que el costo computacional adicional de esta deliberación explícita todavía no está justificado para todas las tareas, y recomiendan reservar estas arquitecturas para escenarios donde el margen de error es más costoso que el tiempo de espera."
+    ]
+  },
+  {
+    "id": 2,
+    "categoria": "Ingeniería de Software",
+    "autor": "Marcos Herrera",
+    "fecha": "2026-09-05",
+    "tiempoLectura": 5,
+    "titulo": "Experiencia práctica: 30 días programando exclusivamente con agentes",
+    "descripcion": "Un ingeniero documenta un mes completo delegando la escritura de código a agentes autónomos y evalúa qué tareas conservó para sí mismo.",
+    "imagen": "covers/ingenieria-de-software.svg",
+    "destacada": true,
+    "cita": "Dejé de escribir funciones y empecé a escribir criterios de aceptación; el código se convirtió en un efecto secundario de la especificación.",
+    "datoInteres": "El 68% del tiempo del experimento se invirtió en revisar diffs y ajustar prompts, no en programar directamente.",
+    "contenido": [
+      "El experimento consistió en resolver el trabajo habitual de un ingeniero de software durante un mes, delegando la totalidad de la escritura de código a agentes autónomos orquestados desde la terminal, conservando para el autor únicamente las decisiones de arquitectura y la revisión final.",
+      "La primera semana estuvo marcada por una curva de aprendizaje inversa: en lugar de aprender a programar mejor, fue necesario aprender a describir mejor. Los prompts vagos producían código correcto mecánicamente, pero divergente respecto a las convenciones del proyecto.",
+      "Hacia la tercera semana, el flujo de trabajo se estabilizó alrededor de un patrón de tres pasos: especificar, generar, revisar. La revisión se volvió la actividad dominante y exigió habilidades distintas a las de escribir código desde cero, más cercanas a la auditoría que a la construcción.",
+      "La conclusión del autor no es que los agentes reemplacen al desarrollador, sino que desplazan su valor agregado hacia la formulación de problemas y la verificación de soluciones, dos habilidades que rara vez se enseñan con el mismo rigor que la sintaxis de un lenguaje."
+    ]
+  },
+  {
+    "id": 3,
+    "categoria": "Hardware y Chips",
+    "autor": "Sofía Bui",
+    "fecha": "2026-08-28",
+    "tiempoLectura": 8,
+    "titulo": "Aceleradores de silicio para inferencia local de alta eficiencia",
+    "descripcion": "Cómo los nuevos chips especializados desplazan cargas de trabajo de inferencia hacia el dispositivo del usuario final.",
+    "imagen": "covers/hardware-y-chips.svg",
+    "destacada": true,
+    "cita": "El consumo por token dejó de ser una nota al pie del rendimiento para convertirse en el primer criterio de diseño del chip.",
+    "datoInteres": "Los prototipos analizados sostienen inferencia de modelos de 7 mil millones de parámetros con un consumo inferior a 6 vatios.",
+    "contenido": [
+      "El desplazamiento de la inferencia desde la nube hacia el dispositivo local responde a tres presiones simultáneas: costo de operación, latencia percibida por el usuario y preocupaciones crecientes sobre privacidad de los datos procesados por modelos de lenguaje.",
+      "Los fabricantes analizados en este artículo comparten una misma apuesta arquitectónica: unidades de multiplicación de matrices de baja precisión acopladas a memoria de ancho de banda elevado, diseñadas específicamente para las operaciones repetitivas de la atención y las capas lineales.",
+      "Semiconductores especializados en cuantización nativa de 4 bits permiten ejecutar modelos que hace dos años solo eran viables en centros de datos, ahora dentro del presupuesto térmico de un computador portátil o una tableta de gama alta.",
+      "El siguiente reto identificado por los equipos de arquitectura es la memoria, no el cómputo: mover los pesos del modelo hacia el silicio sigue consumiendo más energía que la propia multiplicación, por lo que la próxima generación de chips concentrará sus mejoras en el subsistema de memoria."
+    ]
+  },
+  {
+    "id": 4,
+    "categoria": "Ética y Sociedad",
+    "autor": "David Ocampo",
+    "fecha": "2026-08-20",
+    "tiempoLectura": 7,
+    "titulo": "El dilema de la procedencia de datos en el entrenamiento de redes neuronales",
+    "descripcion": "Nuevas auditorías cuestionan cómo los repositorios de infraestructura crítica integran pipelines de datos supervisados por agentes.",
+    "imagen": "covers/etica-y-sociedad.svg",
+    "destacada": false,
+    "cita": "No basta con saber qué datos entrenaron al modelo; hay que poder demostrar que esos datos podían usarse legítimamente.",
+    "datoInteres": "Solo el 22% de los conjuntos de entrenamiento auditados incluía documentación completa de procedencia y consentimiento.",
+    "contenido": [
+      "La trazabilidad del origen de los datos usados para entrenar modelos de gran escala se ha convertido en un requisito regulatorio en varias jurisdicciones, lo que obliga a las organizaciones a reconstruir procesos de curaduría que antes no documentaban con rigor.",
+      "El artículo revisa varios casos donde repositorios de infraestructura crítica integraron pipelines de datos supervisados por agentes automáticos sin un registro claro de las fuentes originales, complicando después cualquier ejercicio de auditoría externa.",
+      "Especialistas en gobernanza de datos proponen un estándar mínimo de metadatos de procedencia que acompañe cada conjunto de entrenamiento, de forma equivalente a como una cadena de custodia documenta la trazabilidad de una evidencia legal.",
+      "La discusión conecta directamente con la heurística de prevención de errores: cuanto antes se documenta el origen de un dato, menor es el costo de corregir un problema de licenciamiento o sesgo detectado meses después del despliegue del modelo."
+    ]
+  },
+  {
+    "id": 5,
+    "categoria": "Ingeniería de Software",
+    "autor": "Jaime Ríos",
+    "fecha": "2026-08-15",
+    "tiempoLectura": 6,
+    "titulo": "Benchmarks de cuantización de 4 bits en servicios edge: rendimiento real",
+    "descripcion": "Comparativa independiente entre motores de inferencia cuantizada ejecutados en arquitecturas de borde con recursos restringidos.",
+    "imagen": "covers/ingenieria-de-software.svg",
+    "destacada": false,
+    "cita": "La diferencia entre un benchmark de laboratorio y una prueba en producción está en los diez minutos que nadie mide.",
+    "datoInteres": "El motor con mejor rendimiento sostenido perdió apenas 1.8 puntos de precisión frente a su versión de 16 bits.",
+    "contenido": [
+      "Este comparativo evalúa cuatro motores de inferencia cuantizada bajo condiciones de borde: memoria limitada, temperatura ambiente variable y ausencia de refrigeración activa, un escenario más representativo de un despliegue real que el de un centro de datos controlado.",
+      "Los resultados iniciales de percepción de velocidad coincidían entre los cuatro motores, pero la prueba sostenida de treinta minutos reveló diferencias importantes en la estabilidad del rendimiento cuando la memoria caché se satura.",
+      "Los desarrolladores de servicios edge recomiendan no basar decisiones de arquitectura únicamente en las primeras peticiones de una prueba de carga, sino observar el comportamiento térmico y de memoria durante ventanas de al menos veinte minutos.",
+      "El artículo cierra con una tabla de recomendaciones según el tipo de dispositivo objetivo, distinguiendo entre escenarios de batería limitada y escenarios con alimentación constante."
+    ]
+  },
+  {
+    "id": 6,
+    "categoria": "Ingeniería de Software",
+    "autor": "Pedro Londoño",
+    "fecha": "2026-08-09",
+    "tiempoLectura": 9,
+    "titulo": "Microservicios orquestados por LLMs: lecciones aprendidas en producción",
+    "descripcion": "Qué aprendió un equipo de plataforma tras un año coordinando llamadas entre microservicios mediante modelos de lenguaje.",
+    "imagen": "covers/ingenieria-de-software.svg",
+    "destacada": false,
+    "cita": "Sustituir un orquestador determinista por un modelo de lenguaje no elimina la complejidad, solo la reubica en los registros de auditoría.",
+    "datoInteres": "El equipo redujo en 40% el tiempo de integración de nuevos servicios, pero triplicó el volumen de registros necesarios para depuración.",
+    "contenido": [
+      "El artículo documenta la experiencia de un equipo de plataforma que reemplazó parte de su capa de orquestación determinista por un modelo de lenguaje encargado de decidir qué microservicio invocar según la intención expresada en cada solicitud.",
+      "La ganancia principal se observó en la velocidad de integración de nuevos servicios, ya que dejaron de requerir reglas de enrutamiento explícitas para cada nuevo caso de uso, delegando esa decisión al modelo en tiempo de ejecución.",
+      "El costo no anticipado fue la observabilidad: depurar una decisión de enrutamiento tomada por un modelo exige registrar el razonamiento completo de la petición, lo que multiplicó el volumen de registros que el equipo debía almacenar y revisar.",
+      "La recomendación final del equipo es reservar esta arquitectura para dominios donde la variedad de intenciones supera la capacidad de mantenimiento de un enrutador basado en reglas escritas a mano."
+    ]
+  },
+  {
+    "id": 7,
+    "categoria": "Inteligencia Artificial",
+    "autor": "Dra. Elena Salgado",
+    "fecha": "2026-07-30",
+    "tiempoLectura": 6,
+    "titulo": "Modelos fundacionales post-Transformer: la ruptura cuántica",
+    "descripcion": "Análisis comparativo sobre cómo las nuevas arquitecturas de estado selectivo sustituyen los mecanismos de autoatención cuadrática.",
+    "imagen": "covers/inteligencia-artificial.svg",
+    "destacada": false,
+    "cita": "El costo cuadrático de la atención dejó de ser un detalle de implementación para convertirse en el límite real del contexto útil.",
+    "datoInteres": "Las arquitecturas de estado selectivo evaluadas procesan secuencias ocho veces más largas con el mismo presupuesto de memoria.",
+    "contenido": [
+      "Las arquitecturas de estado selectivo proponen sustituir el mecanismo de autoatención, cuyo costo crece de forma cuadrática con la longitud de la secuencia, por una representación de estado que se actualiza de forma lineal a medida que el modelo procesa la entrada.",
+      "Este cambio no es meramente técnico: redefine qué tareas resultan viables. Documentos completos, historiales de conversación extensos o secuencias genómicas dejan de requerir estrategias artificiales de resumen o truncamiento.",
+      "Los primeros bancos de pruebas muestran que la calidad de recuperación de información dentro de contextos largos todavía es inferior a la de los mejores modelos basados en atención, aunque la brecha se reduce con cada iteración.",
+      "El artículo concluye que la coexistencia de ambas familias de arquitecturas, más que la sustitución completa de una por otra, será el escenario más probable durante los próximos años."
+    ]
+  },
+  {
+    "id": 8,
+    "categoria": "Hardware y Chips",
+    "autor": "Marcos Gallardo",
+    "fecha": "2026-07-22",
+    "tiempoLectura": 5,
+    "titulo": "Fotónica de silicio a 2 nanómetros: la respuesta definitiva a la crisis de escalado",
+    "descripcion": "Las principales fundiciones aceleran la hibridación óptica para eliminar el cuello de botella de la interconexión eléctrica en clústeres.",
+    "imagen": "covers/hardware-y-chips.svg",
+    "destacada": false,
+    "cita": "Ya no competimos por transistores más pequeños, competimos por fotones que no se calienten.",
+    "datoInteres": "Los enlaces ópticos evaluados reducen el consumo de interconexión entre nodos en un 55% frente al cobre tradicional.",
+    "contenido": [
+      "La miniaturización de transistores ha llegado a un punto donde la interconexión eléctrica entre chips, y no el propio transistor, concentra buena parte del consumo energético de un clúster de entrenamiento de gran escala.",
+      "La fotónica de silicio propone sustituir tramos de esa interconexión por guías de onda ópticas integradas directamente en el paquete del chip, reduciendo la disipación de calor asociada al movimiento de datos entre unidades de cómputo.",
+      "Las fundiciones líderes ya presentan hojas de ruta conjuntas entre sus procesos de dos nanómetros y sus líneas de empaquetado óptico, anticipando que la próxima generación de aceleradores integrará ambas tecnologías de fábrica.",
+      "El artículo advierte que el reto pendiente no es la fabricación del componente óptico, sino la estandarización de los protocolos de control que permitan a distintos fabricantes interoperar en un mismo clúster."
+    ]
+  },
+  {
+    "id": 9,
+    "categoria": "Ética y Sociedad",
+    "autor": "Clara Benítez",
+    "fecha": "2026-07-14",
+    "tiempoLectura": 11,
+    "titulo": "Soberanía algorítmica en Europa: auditorías de código cerrado bajo escrutinio regulatorio",
+    "descripcion": "Primer balance de inspección en sistemas de alto riesgo tras las auditorías de código cerrado bajo el marco corporativo y el derecho civil.",
+    "imagen": "covers/etica-y-sociedad.svg",
+    "destacada": false,
+    "cita": "Auditar un sistema de alto riesgo sin acceso al código es como certificar un puente mirando solo la fotografía.",
+    "datoInteres": "Únicamente un tercio de las auditorías revisadas tuvo acceso efectivo al modelo entrenado, y no solo a su documentación.",
+    "contenido": [
+      "El marco regulatorio europeo para sistemas de inteligencia artificial de alto riesgo exige mecanismos de auditoría independiente, pero el artículo documenta las tensiones que surgen cuando el proveedor del modelo se niega a compartir el código fuente por razones de secreto industrial.",
+      "Los auditores consultados coinciden en que una auditoría basada exclusivamente en documentación y pruebas de caja negra reduce significativamente la capacidad de detectar sesgos estructurales presentes en las capas internas del modelo.",
+      "Algunas jurisdicciones ensayan esquemas de acceso restringido, donde un tercero de confianza revisa el modelo en un entorno controlado sin que el código salga de las instalaciones del proveedor, como término medio entre transparencia total y secreto absoluto.",
+      "El artículo concluye que la soberanía algorítmica, entendida como la capacidad de un Estado para verificar de forma independiente los sistemas que regula, seguirá siendo aspiracional mientras el acceso al modelo entrenado continúe siendo la excepción y no la norma."
+    ]
+  },
+  {
+    "id": 10,
+    "categoria": "Ingeniería de Software",
+    "autor": "Mateo Vega",
+    "fecha": "2026-07-05",
+    "tiempoLectura": 6,
+    "titulo": "Agentes de codificación autónoma: de asistentes reactivos a colaboradores proactivos",
+    "descripcion": "Cómo los repositorios de infraestructura crítica integran pipelines de CI/CD supervisados por agentes LLM orquestados con sandboxing de producción.",
+    "imagen": "covers/ingenieria-de-software.svg",
+    "destacada": false,
+    "cita": "El agente dejó de esperar instrucciones y empezó a abrir incidencias sobre problemas que todavía no le habíamos pedido resolver.",
+    "datoInteres": "El 41% de las incidencias abiertas por agentes autónomos en el estudio no habían sido detectadas previamente por el equipo humano.",
+    "contenido": [
+      "El artículo distingue dos generaciones de agentes de codificación: una reactiva, que responde a instrucciones puntuales del desarrollador, y otra proactiva, que monitorea continuamente el repositorio y propone cambios sin que se le solicite explícitamente.",
+      "Los equipos que adoptaron agentes proactivos reportan un beneficio inesperado: la detección temprana de código muerto y dependencias desactualizadas que ningún miembro del equipo había señalado como prioridad.",
+      "El sandboxing de producción resultó indispensable para permitir que estos agentes propusieran cambios sin riesgo, ejecutando sus modificaciones en una réplica aislada antes de que un humano las revisara y aprobara.",
+      "La conclusión del estudio es que la proactividad del agente debe ir acompañada de un límite claro de autoridad: proponer cambios sí, aplicarlos de forma autónoma en producción, todavía no."
+    ]
+  },
+  {
+    "id": 11,
+    "categoria": "Modelos de Lenguaje",
+    "autor": "Dr. Arlo Thorne",
+    "fecha": "2026-06-28",
+    "tiempoLectura": 9,
+    "titulo": "Memoria episódica y persistencia vectorial: el fin de las ventanas de contexto finitas",
+    "descripcion": "Estructuras de datos graficadas sobre vectores que dotan a los modelos de razonamiento continuo sin necesidad de reentrenamiento.",
+    "imagen": "covers/modelos-de-lenguaje.svg",
+    "destacada": false,
+    "cita": "Dejar de olvidar no significa recordarlo todo; significa saber qué vale la pena conservar más allá de la sesión actual.",
+    "datoInteres": "El prototipo de memoria vectorial mantuvo coherencia conversacional después de más de tres mil turnos de interacción.",
+    "contenido": [
+      "La ventana de contexto finita ha sido durante años el límite práctico de la memoria de un modelo de lenguaje: una vez que la conversación excede ese tamaño, la información anterior simplemente desaparece.",
+      "Las propuestas de memoria episódica evaluadas en este artículo almacenan representaciones vectoriales de interacciones pasadas en una base de datos externa, recuperando solo los fragmentos relevantes para cada nueva consulta.",
+      "A diferencia del reentrenamiento del modelo, esta estrategia permite actualizar lo que el sistema recuerda sin modificar sus parámetros internos, lo que simplifica enormemente el mantenimiento de asistentes de largo plazo.",
+      "El artículo advierte que la selección de qué recordar y qué descartar sigue siendo una decisión de diseño no trivial, con implicaciones directas sobre la privacidad de la información conservada entre sesiones."
+    ]
+  },
+  {
+    "id": 12,
+    "categoria": "Robótica",
+    "autor": "Renata Solís",
+    "fecha": "2026-06-20",
+    "tiempoLectura": 7,
+    "titulo": "Brazos robóticos con aprendizaje por imitación: reduciendo la brecha entre simulación y mundo real",
+    "descripcion": "Nuevas técnicas de transferencia permiten que políticas entrenadas en simuladores conserven su desempeño al operar sobre hardware físico.",
+    "imagen": "covers/robotica.svg",
+    "destacada": false,
+    "cita": "El robot que funciona perfecto en el simulador y falla en la mesa del laboratorio es el fantasma que persigue a toda la disciplina.",
+    "datoInteres": "La brecha de rendimiento entre simulación y mundo real se redujo del 47% al 12% con el nuevo esquema de transferencia.",
+    "contenido": [
+      "El aprendizaje por imitación permite entrenar políticas de control robótico a partir de demostraciones humanas, pero durante años ha enfrentado una brecha conocida como sim-to-real: lo aprendido en simulación se degrada al ejecutarse sobre hardware físico.",
+      "Las técnicas evaluadas en este artículo introducen variabilidad controlada en los parámetros físicos del simulador durante el entrenamiento, obligando a la política a generalizar en lugar de memorizar las condiciones exactas de un único entorno virtual.",
+      "Los resultados sobre brazos robóticos de seis grados de libertad muestran una reducción sustancial de la brecha de rendimiento, aunque las tareas que requieren contacto fino, como ensamblar piezas pequeñas, siguen siendo las más difíciles de transferir.",
+      "El artículo concluye que la próxima frontera no está en mejorar el simulador, sino en diseñar métricas que anticipen qué tareas concretas fallarán al pasar del entorno virtual al mundo físico antes de invertir en el hardware."
+    ]
+  }
+]

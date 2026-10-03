@@ -1,0 +1,16 @@
+<form [class.pie-boletin]="variante() === 'pie'" (ngSubmit)="suscribir()" novalidate>
+  <input
+    type="email"
+    name="correo"
+    [ngModel]="correo()"
+    (ngModelChange)="correo.set($event)"
+    [placeholder]="suscrito() ? '¡Gracias por suscribirte!' : 'tucorreo@ejemplo.com'"
+    [attr.aria-invalid]="intentoFallido()"
+    aria-label="Correo electrónico para el boletín"
+  />
+  @if (variante() === 'pie') {
+    <button type="submit">Suscribir</button>
+  } @else {
+    <button type="submit" class="btn btn-primario" style="justify-content: center">Suscribirme</button>
+  }
+</form>

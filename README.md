@@ -4,6 +4,15 @@ Prototipo funcional (Entrega 2) del proyecto **Vertize**, desarrollado para el m
 
 Repositorio: https://github.com/julianmeza-pixel/vertize
 
+## Versiones del proyecto
+
+| Entrega | Tecnología | Ubicación | Etiqueta Git |
+|---|---|---|---|
+| 2 — Prototipo funcional | HTML, CSS y JavaScript | Raíz del repositorio (este directorio) | `entrega-2` |
+| 3 — Entrega final | Angular 21 | [`vertize-angular/`](vertize-angular/) (código) y [`docs/`](docs/) (sitio compilado) | `entrega-3` |
+
+**Sitio desplegado (Entrega 3):** https://julianmeza-pixel.github.io/vertize/
+
 ## Autores
 
 - Julian Felipe Meza Gonzalez
@@ -79,9 +88,9 @@ Luego abre `http://localhost:8000` (o el puerto que indique la herramienta) en e
 - `localStorage` para persistencia de favoritas y del mini CRUD
 - Fuente tipográfica Poppins (Google Fonts)
 
-## Próxima entrega
+## Entrega final
 
-La Entrega 3 incorporará una implementación básica en Angular (componentes y *data binding*) sobre esta misma base funcional, además del despliegue en un servicio de hospedaje gratuito.
+La Entrega 3 migra esta base funcional a Angular (componentes, servicios, enrutamiento y formularios reactivos) y la despliega en GitHub Pages. Consulta [`vertize-angular/README.md`](vertize-angular/README.md).
 
 ## Nota sobre las imágenes
 

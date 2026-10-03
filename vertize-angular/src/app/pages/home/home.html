@@ -1,0 +1,54 @@
+<main>
+  <section class="hero container">
+    <h1>La frontera de la <u>Inteligencia Artificial</u> y la tecnología, con rigor y claridad.</h1>
+    <p>Análisis algorítmico independiente, bitácoras de campo y crónicas directas desde el epicentro del software moderno.</p>
+  </section>
+
+  <section class="seccion container">
+    <div class="encabezado-seccion">
+      <div>
+        <span class="titulo-eyebrow">Noticias destacadas</span>
+        <h2>Lo más relevante de esta edición</h2>
+      </div>
+      <a routerLink="/noticias" class="btn-texto">Ver todas las noticias →</a>
+    </div>
+
+    @if (servicio.cargando()) {
+      <p class="estado-vacio">Cargando noticias...</p>
+    } @else if (servicio.error()) {
+      <p class="estado-vacio">{{ servicio.error() }}</p>
+    } @else {
+      <div class="grid-noticias">
+        @for (noticia of servicio.destacadas(); track noticia.id) {
+          <app-noticia-card [noticia]="noticia" />
+        }
+      </div>
+    }
+  </section>
+
+  <section class="seccion--sm container">
+    <div class="cta-banda">
+      <div>
+        <h3>¿Tienes una noticia o experiencia con IA que compartir?</h3>
+        <p>Publicamos hallazgos de campo y llegamos a más de 45.000 ingenieros y fundadores en la comunidad de Vertize.</p>
+      </div>
+      <a routerLink="/gestion" class="btn btn-primario">📤 Publicar noticia</a>
+    </div>
+  </section>
+
+  <section class="seccion container">
+    <div style="text-align: center; margin-bottom: 22px">
+      <span class="titulo-eyebrow">Respaldo y rigor técnico</span>
+      <h2>Nuestros pilares editoriales</h2>
+    </div>
+    <div class="grid-pilares">
+      @for (pilar of pilares; track pilar.titulo) {
+        <div class="pilar">
+          <div class="pilar__icono">{{ pilar.icono }}</div>
+          <h3>{{ pilar.titulo }}</h3>
+          <p class="texto-atenuado">{{ pilar.texto }}</p>
+        </div>
+      }
+    </div>
+  </section>
+</main>

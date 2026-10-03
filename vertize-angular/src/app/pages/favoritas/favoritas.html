@@ -1,0 +1,32 @@
+<main class="container seccion">
+  <div class="favoritas-encabezado">
+    <div>
+      <span class="titulo-eyebrow">Tu biblioteca</span>
+      <h1>Tus Noticias Favoritas</h1>
+      <p class="texto-atenuado">
+        Colección personal de artículos, investigaciones y ensayos guardados para consulta analítica y relectura sosegada.
+      </p>
+    </div>
+    <button type="button" class="btn btn-secundario" (click)="vaciar()">🗑 Vaciar todas las favoritas</button>
+  </div>
+
+  <div class="chips-categoria">
+    <button type="button" class="chip" [class.activo]="categoria() === 'Todas'" (click)="categoria.set('Todas')">Todas</button>
+    @for (cat of categoriasPresentes(); track cat) {
+      <button type="button" class="chip" [class.activo]="categoria() === cat" (click)="categoria.set(cat)">{{ cat }}</button>
+    }
+  </div>
+
+  @if (visibles().length) {
+    <div class="grid-noticias">
+      @for (noticia of visibles(); track noticia.id) {
+        <app-noticia-card [noticia]="noticia" [mostrarGuardar]="false" [mostrarQuitar]="true" (quitar)="quitar($event)" />
+      }
+    </div>
+  } @else {
+    <div class="estado-vacio">
+      <h3>Aún no has guardado ninguna noticia</h3>
+      <p>Explora el <a routerLink="/noticias">listado de noticias</a> y pulsa el ícono ☆ para guardarlas aquí.</p>
+    </div>
+  }
+</main>

@@ -1,0 +1,31 @@
+<article class="tarjeta">
+  <div class="tarjeta__media">
+    <span class="tarjeta__categoria">{{ noticia().categoria }}</span>
+    @if (mostrarGuardar()) {
+      <button
+        type="button"
+        class="tarjeta__guardar"
+        [class.activo]="esFavorita()"
+        [attr.aria-pressed]="esFavorita()"
+        aria-label="Guardar en favoritas"
+        title="Guardar en favoritas"
+        (click)="alternarFavorita()"
+      >{{ esFavorita() ? '★' : '☆' }}</button>
+    }
+    <img [src]="noticia().imagen" [alt]="'Imagen de portada: ' + noticia().titulo" loading="lazy" />
+  </div>
+  <div class="tarjeta__cuerpo">
+    <div class="tarjeta__meta">
+      <span>Por {{ noticia().autor }}</span>
+      <span>⏱ {{ noticia().tiempoLectura }} min</span>
+    </div>
+    <h3 class="tarjeta__titulo">{{ noticia().titulo }}</h3>
+    <p class="tarjeta__descripcion">{{ noticia().descripcion }}</p>
+    <div class="tarjeta__pie">
+      <a class="tarjeta__accion" [routerLink]="['/noticias', noticia().id]">Leer noticia →</a>
+      @if (mostrarQuitar()) {
+        <button type="button" class="btn-texto" (click)="quitar.emit(noticia().id)">🗑 Quitar</button>
+      }
+    </div>
+  </div>
+</article>

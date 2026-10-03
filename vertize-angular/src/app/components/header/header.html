@@ -1,0 +1,34 @@
+<header class="encabezado" [class.nav-abierto]="menuAbierto()">
+  <div class="franja-fecha">
+    <div class="container">
+      <span>{{ fechaEdicion }}</span>
+      <span>Boletín informativo diario</span>
+    </div>
+  </div>
+  <nav class="nav-principal container" aria-label="Navegación principal">
+    <a routerLink="/" class="logo" (click)="cerrarMenu()"><span class="marca-icono">V</span> VERTIZE</a>
+    <button
+      type="button"
+      class="menu-toggle"
+      aria-label="Abrir menú"
+      [attr.aria-expanded]="menuAbierto()"
+      (click)="alternarMenu()"
+    >☰</button>
+    <ul class="menu-principal">
+      @for (enlace of enlaces; track enlace.ruta) {
+        <li>
+          <a
+            [routerLink]="enlace.ruta"
+            routerLinkActive="activo"
+            [routerLinkActiveOptions]="{ exact: enlace.exacto }"
+            (click)="cerrarMenu()"
+          >{{ enlace.etiqueta }}</a>
+        </li>
+      }
+    </ul>
+    <div class="nav-derecha">
+      <span class="texto-sesion">Iniciar sesión</span>
+      <span class="avatar-cuenta">👤</span>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,71 @@
+<main class="container seccion">
+  <div class="encabezado-seccion">
+    <div>
+      <span class="titulo-eyebrow">Índice · exploración</span>
+      <h1>Noticias, Ensayos y Crónicas de IA</h1>
+      <p class="texto-atenuado">
+        Explora la cobertura técnica independiente sobre modelos fundacionales, hardware computacional y el futuro del desarrollo de software.
+      </p>
+    </div>
+    <a routerLink="/gestion" class="btn btn-primario">+ Crear noticia</a>
+  </div>
+
+  <div class="barra-busqueda">
+    <div class="campo-busqueda">
+      <span class="icono">🔎</span>
+      <input
+        type="search"
+        placeholder="Buscar por palabras clave, modelos, arquitecturas o autores..."
+        aria-label="Buscar noticias"
+        [ngModel]="texto()"
+        (ngModelChange)="cambiarTexto($event)"
+      />
+    </div>
+    <div class="selector-orden">
+      <select aria-label="Ordenar noticias" [ngModel]="orden()" (ngModelChange)="cambiarOrden($event)">
+        <option value="recientes">Ordenar: Más recientes</option>
+        <option value="antiguas">Ordenar: Más antiguas</option>
+        <option value="lectura-asc">Ordenar: Lectura más corta</option>
+        <option value="lectura-desc">Ordenar: Lectura más larga</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="chips-categoria">
+    <button type="button" class="chip" [class.activo]="categoria() === 'Todas'" (click)="cambiarCategoria('Todas')">Todas</button>
+    @for (cat of categorias; track cat) {
+      <button type="button" class="chip" [class.activo]="categoria() === cat" (click)="cambiarCategoria(cat)">{{ cat }}</button>
+    }
+  </div>
+
+  @if (servicio.cargando()) {
+    <p class="estado-vacio">Cargando noticias...</p>
+  } @else if (servicio.error()) {
+    <p class="estado-vacio">{{ servicio.error() }}</p>
+  } @else {
+    <p class="contador-resultados">
+      {{ filtradas().length }} artículo{{ filtradas().length === 1 ? '' : 's' }} encontrado{{ filtradas().length === 1 ? '' : 's' }}
+    </p>
+
+    @if (visibles().length) {
+      <div class="grid-noticias">
+        @for (noticia of visibles(); track noticia.id) {
+          <app-noticia-card [noticia]="noticia" />
+        }
+      </div>
+    } @else {
+      <div class="estado-vacio">
+        <h3>No encontramos noticias con esos criterios</h3>
+        <p>Prueba con otra palabra clave o quita algunos filtros.</p>
+      </div>
+    }
+
+    @if (totalPaginas() > 1) {
+      <nav class="paginacion" aria-label="Paginación de resultados">
+        @for (numero of numerosPagina(); track numero) {
+          <button type="button" [class.activo]="numero === paginaActual()" (click)="irAPagina(numero)">{{ numero }}</button>
+        }
+      </nav>
+    }
+  }
+</main>

@@ -1,0 +1,84 @@
+<main class="container seccion" style="max-width: 760px">
+  <span class="titulo-eyebrow">Atención editorial y lectores</span>
+  <h1>Ponte en Contacto con Vertize</h1>
+  <p class="texto-atenuado">
+    Escríbenos para sugerencias de cobertura, primicias técnicas, consultas editoriales, colaboraciones o soporte sobre tu cuenta y biblioteca.
+  </p>
+
+  <div class="formulario" style="margin-top: 24px">
+    <h3>Canal Oficial de Transmisión</h3>
+    <p class="texto-atenuado" style="font-size: 0.85rem">
+      Completa los datos para canalizar directamente con el equipo editorial o técnico.
+    </p>
+
+    @if (enviado()) {
+      <div class="mensaje-confirmacion visible" role="status">
+        ✅ Tu mensaje fue enviado correctamente. Nuestro equipo editorial te responderá en un plazo máximo de 48 horas.
+      </div>
+    }
+
+    <form [formGroup]="formulario" (ngSubmit)="enviar()" novalidate>
+      <div class="grid-2">
+        <div class="campo" [class.error]="invalido(formulario.controls.nombre)">
+          <label for="nombre">Nombre completo <span class="obligatorio">*</span></label>
+          <input id="nombre" type="text" formControlName="nombre" placeholder="Dra. Elena Almirall" autocomplete="name" />
+          <p class="ayuda">Identidad o seudónimo profesional.</p>
+          <p class="mensaje-error">Escribe tu nombre completo (mínimo 3 caracteres).</p>
+        </div>
+        <div class="campo" [class.error]="invalido(formulario.controls.correo)">
+          <label for="correo">Correo electrónico <span class="obligatorio">*</span></label>
+          <input id="correo" type="email" formControlName="correo" placeholder="nombre@entidad.com" autocomplete="email" />
+          <p class="ayuda">Enviaremos acuse de recibo y copia cifrada.</p>
+          <p class="mensaje-error">Ingresa un correo con formato nombre&#64;dominio.extensión.</p>
+        </div>
+      </div>
+
+      <div class="campo" [class.error]="invalido(formulario.controls.motivo)">
+        <label for="motivo">Motivo del contacto <span class="obligatorio">*</span></label>
+        <select id="motivo" formControlName="motivo">
+          <option value="">Selecciona una categoría editorial</option>
+          <option value="sugerencia">Sugerencia de cobertura</option>
+          <option value="consulta">Consulta editorial</option>
+          <option value="colaboracion">Colaboración o primicia técnica</option>
+          <option value="soporte">Soporte de cuenta o biblioteca</option>
+        </select>
+        <p class="mensaje-error">Selecciona un motivo de contacto.</p>
+      </div>
+
+      <div class="campo" [class.error]="invalido(formulario.controls.asunto)">
+        <label for="asunto">Asunto del comunicado <span class="obligatorio">*</span></label>
+        <input id="asunto" type="text" formControlName="asunto" placeholder="Ej: Filtración técnica sobre arquitectura de pesos mixtos" />
+        <p class="mensaje-error">El asunto es obligatorio (mínimo 5 caracteres).</p>
+      </div>
+
+      <div class="campo" [class.error]="invalido(formulario.controls.mensaje)">
+        <label for="mensaje">
+          Mensaje detallado <span class="obligatorio">*</span>
+          <span class="contador" [style.color]="longitudMensaje >= minimoMensaje ? 'var(--verde-700)' : 'var(--rojo-600)'">
+            {{ longitudMensaje }} / {{ minimoMensaje }} mín.
+          </span>
+        </label>
+        <textarea
+          id="mensaje"
+          formControlName="mensaje"
+          placeholder="Describe tu consulta, adjunta enlaces a repositorios públicos o contexto relevante para nuestra mesa de redacción..."
+        ></textarea>
+        <p class="mensaje-error">El mensaje debe tener al menos {{ minimoMensaje }} caracteres.</p>
+      </div>
+
+      <div class="campo" [class.error]="invalido(formulario.controls.politica)">
+        <label class="campo-checkbox">
+          <input type="checkbox" formControlName="politica" />
+          <span>
+            He leído y acepto expresamente la
+            <a href="#" style="color: var(--verde-700); font-weight: 600">Política de Privacidad</a> y el
+            <a href="#" style="color: var(--verde-700); font-weight: 600">Código Deontológico</a> de Vertize.
+          </span>
+        </label>
+        <p class="mensaje-error">Debes aceptar la política de privacidad para continuar.</p>
+      </div>
+
+      <button type="submit" class="btn btn-primario" [disabled]="formulario.invalid">Enviar mensaje ▶</button>
+    </form>
+  </div>
+</main>

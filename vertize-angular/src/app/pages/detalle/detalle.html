@@ -1,0 +1,73 @@
+<main class="container seccion">
+  @if (cargando()) {
+    <p class="estado-vacio">Cargando noticia...</p>
+  } @else if (noticia(); as n) {
+    <div class="detalle-encabezado">
+      <span class="titulo-eyebrow">{{ n.categoria }}</span>
+      <h1>{{ n.titulo }}</h1>
+      <div class="detalle-meta">
+        <span>Por {{ n.autor }}</span>
+        <span>·</span>
+        <span>{{ n.fecha | date: 'longDate' }}</span>
+        <span>·</span>
+        <span>⏱ {{ n.tiempoLectura }} min de lectura</span>
+      </div>
+      <div class="detalle-acciones">
+        <button type="button" class="btn-icono" [class.activo]="esFavorita()" title="Guardar en favoritas" aria-label="Guardar en favoritas" (click)="alternarFavorita()">
+          {{ esFavorita() ? '★' : '☆' }}
+        </button>
+        <button type="button" class="btn-icono" title="Compartir" aria-label="Compartir" (click)="compartir()">↗</button>
+        <button type="button" class="btn-icono" title="Copiar enlace" aria-label="Copiar enlace" (click)="copiarEnlace()">
+          {{ enlaceCopiado() ? '✓' : '🔗' }}
+        </button>
+      </div>
+    </div>
+
+    <div class="detalle-layout">
+      <div>
+        <div class="detalle-imagen">
+          <img [src]="n.imagen" [alt]="'Imagen principal: ' + n.titulo" />
+        </div>
+        <div class="detalle-cuerpo">
+          @for (parrafo of n.contenido; track $index) {
+            <p>{{ parrafo }}</p>
+            @if ($index === 0 && n.cita) {
+              <blockquote class="cita-destacada">"{{ n.cita }}"</blockquote>
+            }
+            @if ($index === 1 && n.datoInteres) {
+              <div class="dato-interes"><strong>Dato de interés</strong>{{ n.datoInteres }}</div>
+            }
+          } @empty {
+            <p>Esta noticia todavía no tiene contenido detallado.</p>
+          }
+        </div>
+      </div>
+
+      <aside>
+        <div class="panel-lateral">
+          <h4>Noticias relacionadas</h4>
+          @for (rel of relacionadas(); track rel.id) {
+            <a class="relacionada" [routerLink]="['/noticias', rel.id]">
+              <img [src]="rel.imagen" alt="" />
+              <div>
+                <h5>{{ rel.titulo }}</h5>
+                <span>{{ rel.categoria }} · {{ rel.tiempoLectura }} min</span>
+              </div>
+            </a>
+          } @empty {
+            <p class="texto-atenuado">No hay más noticias en esta categoría todavía.</p>
+          }
+        </div>
+        <div class="panel-suscripcion">
+          <strong>Suscríbete al newsletter de VERTIZE</strong>
+          <p class="texto-atenuado" style="font-size: 0.82rem">Recibe cada semana los análisis más leídos, sin costo.</p>
+          <app-boletin variante="panel" />
+        </div>
+      </aside>
+    </div>
+  } @else {
+    <p class="estado-vacio">
+      La noticia solicitada no existe o fue eliminada. <a routerLink="/noticias">Volver al listado</a>.
+    </p>
+  }
+</main>
