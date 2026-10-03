@@ -194,7 +194,8 @@ p { margin: 0 0 1rem; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 0;
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 
 .logo {
@@ -267,7 +268,8 @@ p { margin: 0 0 1rem; }
 /* =================== HERO / HOME =================== */
 .hero {
   text-align: center;
-  padding: 56px 0 40px;
+  padding-top: 56px;
+  padding-bottom: 40px;
 }
 
 .hero h1 {
@@ -464,7 +466,8 @@ p { margin: 0 0 1rem; }
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
   gap: 28px;
-  padding: 42px 0 24px;
+  padding-top: 42px;
+  padding-bottom: 24px;
 }
 
 .pie-grid h4 {
@@ -510,7 +513,8 @@ p { margin: 0 0 1rem; }
 
 .pie-legal {
   border-top: 1px solid rgba(250, 246, 236, 0.12);
-  padding: 16px 0;
+  padding-top: 16px;
+  padding-bottom: 16px;
   display: flex;
   justify-content: space-between;
   font-size: 0.76rem;
@@ -984,7 +988,20 @@ p { margin: 0 0 1rem; }
   .grid-noticias { grid-template-columns: 1fr; }
   .catalogo-vigente { grid-template-columns: 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
-  .pie-grid { grid-template-columns: 1fr; padding: 32px 0 16px; }
+  .pie-grid { grid-template-columns: 1fr; padding-top: 32px; padding-bottom: 16px; }
   .cta-banda { flex-direction: column; align-items: flex-start; }
   .barra-busqueda { flex-direction: column; }
+}
+
+/* Los componentes de Angular son elementos personalizados: se estiran para que las tarjetas de una fila midan lo mismo. */
+app-noticia-card {
+  display: flex;
+}
+
+app-noticia-card > .tarjeta {
+  flex: 1;
+}
+
+.dato-interes strong {
+  margin-right: 8px;
 }
