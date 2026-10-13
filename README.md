@@ -1,8 +1,10 @@
 # Vertize — Plataforma web de noticias sobre IA y tecnología
 
-Prototipo funcional (Entrega 2) del proyecto **Vertize**, desarrollado para el módulo de Desarrollo de Front-end del Politécnico Gran Colombiano. Construido con HTML, CSS y JavaScript (sin frameworks), a partir de la maquetación entregada en la Entrega 1.
+Proyecto **Vertize**, desarrollado para el módulo de Desarrollo de Front-end del Politécnico Gran Colombiano. La **entrega final (Entrega 3)** es una aplicación construida con **Angular 21** y publicada en GitHub Pages; la raíz de este repositorio conserva el prototipo funcional de la Entrega 2, hecho con HTML, CSS y JavaScript (sin frameworks) a partir de la maquetación de la Entrega 1.
 
-Repositorio: https://github.com/julianmeza-pixel/vertize
+- Repositorio: https://github.com/julianmeza-pixel/vertize
+- Sitio desplegado (Entrega 3): https://julianmeza-pixel.github.io/vertize/
+- Video explicativo: https://youtu.be/oYnnl41iH2k
 
 ## Versiones del proyecto
 
@@ -20,6 +22,8 @@ Repositorio: https://github.com/julianmeza-pixel/vertize
 - Daniel Felipe Tamayo Rodríguez
 
 Tutor: John Olarte Ramos
+
+> Las secciones siguientes (estructura, ejecución local, funcionalidades y tecnologías) describen el **prototipo de la Entrega 2**, ubicado en la raíz. Para la versión Angular, consulta [`vertize-angular/README.md`](vertize-angular/README.md).
 
 ## Descripción
 
